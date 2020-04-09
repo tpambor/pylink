@@ -12,13 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .__version__ import __version__, __title__, __author__, __author_email__
-from .__version__ import __copyright__, __license__, __url__, __description__
-from .__version__ import __long_description__
-
-from .enums import *
-from .errors import *
-from .jlink import *
-from .library import *
-from .structs import *
-from .unlockers import *
+__version__ = '0.6.0'
+__title__ = 'pylink'
+__author__ = 'Square Embedded Software Team'
+__author_email__ = 'esw-team@squareup.com'
+__copyright__ = 'Copyright 2017 Square, Inc.'
+__license__ = 'Apache 2.0'
+__url__ = 'http://www.github.com/Square/pylink'
+__description__ = 'Python interface for SEGGER J-Link.'
+__long_description__ = '''This module provides a Python implementation of the
+J-Link SDK by leveraging the SDK's DLL.
+'''

@@ -13,13 +13,16 @@
 # limitations under the License.
 
 import sys
-
-import pylink
-
 import os
 import setuptools
 import shutil
 import subprocess
+
+whereami = os.path.abspath(os.path.dirname(__file__))
+
+about = {}
+with open(os.path.join(whereami, 'pylink', '__version__.py'), 'r', encoding='utf-8') as f:
+    exec(f.read(), about)
 
 
 class CleanCommand(setuptools.Command):
@@ -210,7 +213,7 @@ def long_description():
     cwd = os.path.abspath(os.path.dirname(__file__))
     readme_path = os.path.join(cwd, 'README.md')
     if not os.path.exists(readme_path):
-        return pylink.__long_description__
+        return about['__long_description__']
 
     try:
         import pypandoc
@@ -224,16 +227,16 @@ def long_description():
 setuptools.setup(
     # Project information.
     name='pylink-square',
-    version=pylink.__version__,
+    version=about['__version__'],
 
     #  Metadata for upload to PyPI.
-    author=pylink.__author__,
-    author_email=pylink.__author_email__,
-    description=pylink.__description__,
+    author=about['__author__'],
+    author_email=about['__author_email__'],
+    description=about['__description__'],
     long_description=long_description(),
-    license=pylink.__license__,
+    license=about['__license__'],
     keywords='SEGGER J-Link',
-    url=pylink.__url__,
+    url=about['__url__'],
 
     # Packages and package data.
     packages=[
